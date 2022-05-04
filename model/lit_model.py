@@ -79,7 +79,8 @@ class LitModel(LightningModule):
         avg_acc = torch.mean(torch.cat(all_acc))
         self.log_dict({f'{mode}_loss': avg_loss, f'{mode}_acc': avg_acc})
 
-    def __bart_configs(self):
+    @staticmethod
+    def __bart_configs():
         bart_config = AutoModelForSeq2SeqLM.from_pretrained('facebook/bart-base').config
         bart_config.vocab_size = 64000  # default : 50265
         return bart_config
