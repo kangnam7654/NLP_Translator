@@ -1,1 +1,4 @@
-# Project Translator
+# NLP Translator
+
+## Project
+```Korean - English Translator```
