@@ -10,7 +10,7 @@ class CorpusMake:
         self.df = self.load_csv()
 
     def load_csv(self):
-        df = pd.read_csv(self.df_path)
+        df = pd.read_csv(self.df_path, delimiter='\t')
         return df
 
     def write(self):
@@ -24,7 +24,7 @@ class CorpusMake:
 
 
 def main():
-    df_path = GetPaths.get_data_folder('train.csv')
+    df_path = GetPaths.get_data_folder('train.tsv')
     maker = CorpusMake(df_path)
     maker.write()
 

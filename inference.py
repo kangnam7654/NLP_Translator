@@ -1,21 +1,23 @@
-from model.lit_model import LitModel
+from transformers import BartForConditionalGeneration
+from custom_tokenizer.custom_tokenizer import get_tokenizer
 import torch
 
 
 def main():
-    model = LitModel(mode='inference')
-    model.apply_ckpt('./ckpt/model.ckpt')
-    tokenizer = model.tokenizer
+    model = BartForConditionalGeneration.from_pretrained('./model_binary')
+    tokenizer = get_tokenizer()
 
     # kor = input('원문 입력: ')
-    kor = '안녕하세요'
+    kor = 'I know that, I am the one.'
 
-    token = torch.tensor(tokenizer(kor).input_ids).unsqueeze(0)
-    out = torch.argmax(torch.softmax(model(token).logits, dim=2), dim=2)
-    translated = tokenizer.decode(list(out)[0])
+    input_ids = tokenizer.encode(kor)
+    input_ids = torch.tensor(input_ids)
+    input_ids = input_ids.unsqueeze(0)
+
+    out = model.generate(input_ids, eos_token_id=2, max_length=256, num_beams=5)
+    translated = tokenizer.decode(out[0], skip_special_tokens=True)
 
     print(translated)
-
 
 if __name__ == '__main__':
     main()

@@ -1,23 +1,32 @@
 import torch
 from utils.common.project_paths import GetPaths
 from pytorch_lightning import LightningModule
-from transformers import AutoModelForSeq2SeqLM, BartForConditionalGeneration, BartTokenizerFast
+from transformers import AutoModelForSeq2SeqLM, BartForConditionalGeneration
+from custom_tokenizer.custom_tokenizer import get_tokenizer
 
 
-class LitModel(LightningModule):
+class Bart(LightningModule):
     def __init__(self, mode='train'):
         super().__init__()
         self.bart_config = self.__bart_configs()
-        self.new_encoder = None
         self.__build_model()
+        self.bos_token = '<s>'
+        self.eos_token = '</s>'
+        self.pad_token_id = 1
         self.criterion = torch.nn.CrossEntropyLoss()
         self.mode = mode
 
-    def forward(self, x, y=None):
-        if self.mode == 'train':
-            out = self.model(input_ids=x, labels=y)
-        else:
-            out = self.model(input_ids=x)
+    def forward(self, inputs):
+        attention_mask = inputs['input_ids'].ne(self.pad_token_id).float()
+        decoder_attention_mask = inputs['decoder_input_ids'].ne(self.pad_token_id).float()
+
+        out = self.model(input_ids=inputs['input_ids'],
+                         attention_mask=attention_mask,
+                         decoder_input_ids=inputs['decoder_input_ids'],
+                         decoder_attention_mask=decoder_attention_mask,
+                         labels=inputs['labels'].long(),
+                         return_dict=True
+                         )
         return out
 
     def training_step(self, batch, batch_idx):
@@ -43,12 +52,21 @@ class LitModel(LightningModule):
         self.__share_epoch_end(outputs, 'valid')
 
     def configure_optimizers(self):
+        param_optimizer = list(self.model.named_parameters())
+        no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
+        optimizer_grouped_parameters = [
+            {'params': [p for n, p in param_optimizer if not any(
+                nd in n for nd in no_decay)], 'weight_decay': 0.01},
+            {'params': [p for n, p in param_optimizer if any(
+                nd in n for nd in no_decay)], 'weight_decay': 0.0}
+        ]
+
         opt = torch.optim.SGD(
             self.parameters(),
             lr=0.001,
             weight_decay=0.0001,
             momentum=0.9,
-            nesterov=True,
+            nesterov=True
         )
         # sch = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer=opt,)
         sch = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer=opt,
@@ -62,10 +80,9 @@ class LitModel(LightningModule):
         return returns
 
     def __share_step(self, batch):
-        data, label = batch
-        out = self(data, label)
+        out = self(batch)
         loss = out.loss
-        acc = self.compute_accuracy(out, label).unsqueeze(dim=0)
+        acc = self.compute_accuracy(out, batch['labels']).unsqueeze(dim=0)
         return loss, acc
 
     def __share_epoch_end(self, outputs, mode):
@@ -82,13 +99,12 @@ class LitModel(LightningModule):
     @staticmethod
     def __bart_configs():
         bart_config = AutoModelForSeq2SeqLM.from_pretrained('facebook/bart-base').config
-        bart_config.vocab_size = 64000  # default : 50265
+        bart_config.vocab_size = 32000  # default : 50265
         return bart_config
 
     def __build_model(self):
         self.model = BartForConditionalGeneration(self.bart_config)
-        self.model.on_gpu = True
-        self.tokenizer = BartTokenizerFast(tokenizer_file=GetPaths.get_project_root('custom_tokenizer', 'vocab', 'vocab.json'))
+        self.tokenizer = get_tokenizer()
 
     def apply_ckpt(self, checkpoint_path):
         ckpt = torch.load(checkpoint_path)
@@ -110,4 +126,4 @@ class LitModel(LightningModule):
 
 
 if __name__ == '__main__':
-    model = LitModel()
+    model = Bart()
