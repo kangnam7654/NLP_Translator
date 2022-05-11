@@ -1,5 +1,4 @@
 import torch
-from utils.common.project_paths import GetPaths
 from pytorch_lightning import LightningModule
 from transformers import AutoModelForSeq2SeqLM, BartForConditionalGeneration
 from custom_tokenizer.custom_tokenizer import get_tokenizer
@@ -13,7 +12,6 @@ class Bart(LightningModule):
         self.bos_token = '<s>'
         self.eos_token = '</s>'
         self.pad_token_id = 1
-        self.criterion = torch.nn.CrossEntropyLoss()
         self.mode = mode
 
     def forward(self, inputs):
