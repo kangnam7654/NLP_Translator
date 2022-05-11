@@ -6,7 +6,7 @@ from glob import glob
 
 def main():
     """
-    byte level bpe 로 Tokenizer를 만드는 함수입니다.
+    bpe 로 Tokenizer를 만드는 함수입니다.
     :return:
     """
 
@@ -20,7 +20,7 @@ def main():
     # Special Tokens
     special_token = ['<s>', '<pad>', '</s>', '<unk>', '<mask>']
 
-    # unsued token add
+    # unused token add
     for i in range(100):
         unused = f'<unused{i}>'
         special_token.append(unused)
