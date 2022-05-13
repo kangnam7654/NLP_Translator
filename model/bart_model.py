@@ -7,11 +7,12 @@ from custom_tokenizer.custom_tokenizer import get_tokenizer
 class Bart(LightningModule):
     def __init__(self, mode='train'):
         super().__init__()
-        self.bart_config = self.__bart_configs()
-        self.__build_model()
+        self.tokenizer = self.build_tokenizer()
+        self.bart_config = self.bart_configs()
+        self.model = self.build_model(self.bart_config)
         self.bos_token = '<s>'
         self.eos_token = '</s>'
-        self.pad_token_id = 1
+        self.pad_token_id = self.tokenizer.pad_token_id
         self.mode = mode
 
     def forward(self, inputs):
@@ -52,6 +53,8 @@ class Bart(LightningModule):
     def configure_optimizers(self):
         param_optimizer = list(self.model.named_parameters())
         no_decay = ['bias', 'LayerNorm.bias', 'LayerNorm.weight']
+
+        # translator 용
         optimizer_grouped_parameters = [
             {'params': [p for n, p in param_optimizer if not any(
                 nd in n for nd in no_decay)], 'weight_decay': 0.01},
@@ -94,15 +97,25 @@ class Bart(LightningModule):
         avg_acc = torch.mean(torch.cat(all_acc))
         self.log_dict({f'{mode}_loss': avg_loss, f'{mode}_acc': avg_acc})
 
-    @staticmethod
-    def __bart_configs():
+    def bart_configs(self):
         bart_config = AutoModelForSeq2SeqLM.from_pretrained('facebook/bart-base').config
-        bart_config.vocab_size = 32000  # default : 50265
+        bart_config.vocab_size = self.tokenizer.vocab_size  # default : 50265
+        bart_config.pad_token_id = self.tokenizer.pad_token_id
+        bart_config.bos_token_id = self.tokenizer.bos_token_id
+        bart_config.forced_bos_id = self.tokenizer.bos_token_id
+        bart_config.eos_token_id = self.tokenizer.eos_token_id
+        bart_config.forced_eos_id = self.tokenizer.eos_token_id
         return bart_config
 
-    def __build_model(self):
-        self.model = BartForConditionalGeneration(self.bart_config)
-        self.tokenizer = get_tokenizer()
+    @staticmethod
+    def build_tokenizer():
+        tokenizer = get_tokenizer()
+        return tokenizer
+
+    @staticmethod
+    def build_model(bart_config):
+        bart_model = BartForConditionalGeneration(bart_config)
+        return bart_model
 
     def apply_ckpt(self, checkpoint_path):
         ckpt = torch.load(checkpoint_path)

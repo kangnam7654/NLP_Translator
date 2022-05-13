@@ -1,4 +1,4 @@
-from tokenizers import Tokenizer, models, pre_tokenizers, decoders, trainers, processors
+from tokenizers import Tokenizer, models, pre_tokenizers, decoders, trainers
 from transformers import PreTrainedTokenizerFast
 from utils.common.project_paths import GetPaths
 from glob import glob
@@ -18,7 +18,7 @@ def main():
     tokenizer.decoder = decoders.Metaspace()
 
     # Special Tokens
-    special_token = ['<s>', '<pad>', '</s>', '<unk>', '<mask>']
+    special_token = ['<pad>', '<s>', '</s>', '<unk>', '<mask>']
 
     # unused token add
     for i in range(100):

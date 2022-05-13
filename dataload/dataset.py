@@ -3,13 +3,12 @@ import numpy as np
 
 
 class CustomDataset(Dataset):
-    def __init__(self, df, tokenizer, max_len=256, pad_index=1, ignore_index=-100, train_stage=True, translator=False):
+    def __init__(self, df, tokenizer, max_len=256, ignore_index=-100, train_stage=True, translator=False):
         super().__init__()
         self.df = df
         self.tokenizer = tokenizer
         self.train_stage = train_stage
         self.max_len = max_len
-        self.pad_index = pad_index
         self.ignore_index = ignore_index
         self.translator = translator
 
@@ -18,6 +17,7 @@ class CustomDataset(Dataset):
 
     def __getitem__(self, idx):
         instance = self.df.iloc[idx]
+
         input_ids = self.tokenizer.encode(instance['원문'])
         input_ids = self.add_padding_data(input_ids)
 
@@ -25,9 +25,8 @@ class CustomDataset(Dataset):
             label_ids = self.tokenizer.encode(instance['번역문'])
         else:  # base 학습
             label_ids = self.tokenizer.encode(instance['원문'])
-        label_ids.append(self.tokenizer.eos_token_id)
 
-        dec_input_ids = [self.pad_index]
+        dec_input_ids = [self.tokenizer.pad_token_id]
         dec_input_ids += label_ids[:-1]
         dec_input_ids = self.add_padding_data(dec_input_ids)
 
@@ -39,7 +38,7 @@ class CustomDataset(Dataset):
 
     def add_padding_data(self, inputs):
         if len(inputs) < self.max_len:
-            pad = np.array([self.pad_index] * (self.max_len - len(inputs)))
+            pad = np.array([self.tokenizer.pad_token_id] * (self.max_len - len(inputs)))
             inputs = np.concatenate([inputs, pad])
         else:
             inputs = inputs[:self.max_len]
@@ -54,6 +53,17 @@ class CustomDataset(Dataset):
         return inputs
 
 
+def test():
+    import pandas as pd
+    from utils.common.project_paths import GetPaths
+    from custom_tokenizer.custom_tokenizer import get_tokenizer
+    from torch.utils.data import DataLoader
+    df = pd.read_csv(GetPaths.get_data_folder('train.tsv'), delimiter='\t')
+    tokenizer = get_tokenizer()
+    d_set = DataLoader(CustomDataset(df, tokenizer))
+    for i in d_set:
+        print(i)
+
 
 if __name__ == '__main__':
-    pass
+    test()

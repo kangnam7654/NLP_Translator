@@ -6,7 +6,7 @@ from pytorch_lightning.callbacks.model_checkpoint import ModelCheckpoint
 from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 from model.bart_model import Bart
 from utils.common.project_paths import GetPaths
-from dataload.dataloader import LitDataLoader, BaseLitDataLoader
+from dataload.dataloader import LitDataLoader
 from sklearn.model_selection import train_test_split
 
 
@@ -20,14 +20,15 @@ def main():
     # 데이터 프레임
     csv = pd.read_csv(GetPaths.get_data_folder('train.tsv'), delimiter='\t')  # tsv 읽어오기
     # csv = csv[:50000]
-    train_df, valid_df = train_test_split(csv, test_size=0.2)  # train, valid 나누기
+    train_df, valid_df = train_test_split(csv, test_size=0.1)  # train, valid 나누기
     train_df.reset_index(drop=True, inplace=True)  # Index 리셋
     valid_df.reset_index(drop=True, inplace=True)  # Index 리셋
 
     # 데이터 로더
-    lit_loaders = BaseLitDataLoader(train_df=train_df,
+    lit_loaders = LitDataLoader(train_df=train_df,
                                 valid_df=valid_df,
-                                tokenizer=tokenizer)
+                                tokenizer=tokenizer,
+                                translator=False)
 
     train_loader = lit_loaders.train_dataloader()  # 학습 Data Loader
     valid_loader = lit_loaders.val_dataloader()  # 검증 Data Loader
@@ -42,6 +43,7 @@ def main():
                                     mode='min',
                                     save_last=False,
                                     verbose=True)
+
     early_stop = EarlyStopping(monitor='valid_loss', verbose=True, patience=10, mode='min')
 
     # 학습
