@@ -9,6 +9,7 @@ def get_tokenizer():
                                         unk_token="<unk>",
                                         pad_token="<pad>",
                                         mask_token="<mask>",
+                                        do_basic_tokenize=False
                                         )
 
     return tokenizer
