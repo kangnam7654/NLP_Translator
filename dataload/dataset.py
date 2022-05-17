@@ -42,14 +42,13 @@ class CustomDataset(Dataset):
                 'labels': np.array(label_ids)}
 
     def token_masking(self, inputs):
-        n_mask = np.random.randint(round(len(inputs)/2))
-        if n_mask < 1:
-            n_mask = 1
-        idx = [i for i in range(len(inputs))]
-        mask_position = np.random.choice(idx, n_mask)
+        n_mask = np.random.randint(2)
+        if n_mask != 0:
+            idx = [i for i in range(len(inputs))]
+            mask_position = np.random.choice(idx, n_mask)
 
-        for i in mask_position:
-            inputs[i] = self.tokenizer.mask_token_id
+            for i in mask_position:
+                inputs[i] = self.tokenizer.mask_token_id
         return inputs
 
     def add_padding_data(self, inputs):
