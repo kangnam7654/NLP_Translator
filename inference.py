@@ -4,19 +4,18 @@ import torch
 
 
 def main():
-    model = BartForConditionalGeneration.from_pretrained('./binary/kang_bart')
+    model = BartForConditionalGeneration.from_pretrained('./binary/kang_bart2')
     tokenizer = get_tokenizer()
 
     # kor = input('원문 입력: ')
-    kor = '어느정도 괜찮은 것 같네'
+    kor = '<s><mask>가 좋은 하루입니다.</s>'
 
-    input_ids = tokenizer.encode(kor)
-    input_ids = torch.tensor(input_ids)
-    input_ids = input_ids.unsqueeze(0)
+    input_ids = tokenizer(kor, return_tensors='pt')['input_ids']
 
-    out = list(torch.argmax(model(input_ids).logits, dim=2))
-    # out = model.generate(input_ids, eos_token_id=2, max_length=256, num_beams=5)
-    translated = tokenizer.decode(out[0], skip_special_tokens=True)
+    # out = list(torch.argmax(model(input_ids).logits, dim=2))
+    out = model.generate(input_ids, bos_token_id=1, eos_token_id=2, max_length=256)
+    translated = tokenizer.batch_decode(out, skip_special_tokens=True)
+    # translated = tokenizer.decode(out[0])
 
     print(translated)
 
