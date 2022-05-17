@@ -1,4 +1,4 @@
-/binary/kang_bart/*.bin
+/binary/**/*.bin
 /ckpt
 /logs
 /custom_tokenizer/vocab
