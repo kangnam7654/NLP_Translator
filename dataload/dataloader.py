@@ -14,17 +14,17 @@ class LitDataLoader(LightningDataModule):
 
     def __create_dataset(self, mode='train'):
         if mode == 'train':
-            return CustomDataset(df=self.train_df, tokenizer=self.tokenizer, train_stage=True, translator=self.translator)
+            return CustomDataset(df=self.train_df, tokenizer=self.tokenizer, train_stage=True)
         elif mode == 'valid':
-            return CustomDataset(df=self.valid_df, tokenizer=self.tokenizer, train_stage=True, translator=self.translator)
+            return CustomDataset(df=self.valid_df, tokenizer=self.tokenizer, train_stage=True)
         elif mode == 'test':
-            return CustomDataset(df=self.test_df, tokenizer=self.tokenizer, train_stage=False, translator=self.translator)
+            return CustomDataset(df=self.test_df, tokenizer=self.tokenizer, train_stage=False)
 
-    def train_dataloader(self, batch_size=6, shuffle=True, drop_last=False, num_workers=4):
+    def train_dataloader(self, batch_size=4, shuffle=True, drop_last=False, num_workers=4):
         dataset = self.__create_dataset('train')
         return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, drop_last=drop_last, num_workers=num_workers)
 
-    def val_dataloader(self, batch_size=6, shuffle=False, drop_last=False, num_workers=4):
+    def val_dataloader(self, batch_size=4, shuffle=False, drop_last=False, num_workers=4):
         dataset = self.__create_dataset('valid')
         return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, drop_last=drop_last, num_workers=num_workers)
 
