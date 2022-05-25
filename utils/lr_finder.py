@@ -5,7 +5,9 @@ def custom_lr_finder(model, train_loader, num_training=10000):
     trainer = Trainer(accelerator='gpu',
                       gpus=1,
                       precision=16,
-                      num_sanity_val_steps=0)
+                      num_sanity_val_steps=0,
+                      enable_checkpointing=False,
+                      logger=False)
 
     lr_finder = trainer.tuner.lr_find(model, train_dataloaders=train_loader, num_training=num_training)
     new_lr = lr_finder.suggestion()
