@@ -7,9 +7,9 @@ class CorpusMake:
     def __init__(self, df_path):
         super().__init__()
         self.df_path = df_path
-        self.df = self.load_csv()
+        self.df = self.load_tsv()
 
-    def load_csv(self):
+    def load_tsv(self):
         df = pd.read_csv(self.df_path, delimiter='\t')
         return df
 
