@@ -1,0 +1,113 @@
+2022-05-25 17:25:35,541 INFO    StreamThr :16860 [internal.py:wandb_internal():90] W&B internal server running at pid: 16860, started at: 2022-05-25 17:25:35.541745
+2022-05-25 17:25:35,543 DEBUG   HandlerThread:16860 [handler.py:handle_request():141] handle_request: status
+2022-05-25 17:25:35,547 DEBUG   SenderThread:16860 [sender.py:send_request():246] send_request: status
+2022-05-25 17:25:35,548 DEBUG   SenderThread:16860 [sender.py:send():232] send: header
+2022-05-25 17:25:35,548 INFO    WriterThread:16860 [datastore.py:open_for_write():75] open: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\run-22tewpfw.wandb
+2022-05-25 17:25:35,573 DEBUG   SenderThread:16860 [sender.py:send():232] send: run
+2022-05-25 17:25:35,577 INFO    SenderThread:16860 [sender.py:_maybe_setup_resume():489] checking resume status for None/kang_bart/22tewpfw
+2022-05-25 17:25:36,013 DEBUG   HandlerThread:16860 [handler.py:handle_request():141] handle_request: check_version
+2022-05-25 17:25:36,020 INFO    SenderThread:16860 [dir_watcher.py:__init__():197] watching files in: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files
+2022-05-25 17:25:36,021 INFO    SenderThread:16860 [sender.py:_start_run_threads():811] run started: 22tewpfw with start time 1653467135
+2022-05-25 17:25:36,021 DEBUG   SenderThread:16860 [sender.py:send():232] send: summary
+2022-05-25 17:25:36,021 INFO    SenderThread:16860 [sender.py:_save_file():948] saving file wandb-summary.json with policy end
+2022-05-25 17:25:36,021 DEBUG   SenderThread:16860 [sender.py:send_request():246] send_request: check_version
+2022-05-25 17:25:36,070 DEBUG   HandlerThread:16860 [handler.py:handle_request():141] handle_request: run_start
+2022-05-25 17:25:36,090 DEBUG   HandlerThread:16860 [meta.py:__init__():35] meta init
+2022-05-25 17:25:36,090 DEBUG   HandlerThread:16860 [meta.py:__init__():49] meta init done
+2022-05-25 17:25:36,090 DEBUG   HandlerThread:16860 [meta.py:probe():209] probe
+2022-05-25 17:25:36,114 DEBUG   HandlerThread:16860 [meta.py:_setup_git():199] setup git
+2022-05-25 17:25:36,174 DEBUG   HandlerThread:16860 [meta.py:_setup_git():206] setup git done
+2022-05-25 17:25:36,174 DEBUG   HandlerThread:16860 [meta.py:_save_pip():53] save pip
+2022-05-25 17:25:36,177 DEBUG   HandlerThread:16860 [meta.py:_save_pip():67] save pip done
+2022-05-25 17:25:36,177 DEBUG   HandlerThread:16860 [meta.py:_save_conda():74] save conda
+2022-05-25 17:25:37,028 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\wandb-summary.json
+2022-05-25 17:25:37,029 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\conda-environment.yaml
+2022-05-25 17:25:37,029 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\requirements.txt
+2022-05-25 17:25:37,625 DEBUG   HandlerThread:16860 [meta.py:_save_conda():84] save conda done
+2022-05-25 17:25:37,625 DEBUG   HandlerThread:16860 [meta.py:probe():247] probe done
+2022-05-25 17:25:37,751 DEBUG   SenderThread:16860 [sender.py:send():232] send: files
+2022-05-25 17:25:37,751 DEBUG   HandlerThread:16860 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:25:37,751 INFO    SenderThread:16860 [sender.py:_save_file():948] saving file wandb-metadata.json with policy now
+2022-05-25 17:25:37,752 DEBUG   SenderThread:16860 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:25:37,953 DEBUG   SenderThread:16860 [sender.py:send():232] send: telemetry
+2022-05-25 17:25:37,953 DEBUG   SenderThread:16860 [sender.py:send():232] send: metric
+2022-05-25 17:25:37,953 DEBUG   SenderThread:16860 [sender.py:send():232] send: telemetry
+2022-05-25 17:25:37,953 DEBUG   SenderThread:16860 [sender.py:send():232] send: metric
+2022-05-25 17:25:37,953 WARNING SenderThread:16860 [sender.py:send_metric():904] Seen metric with glob (shouldn't happen)
+2022-05-25 17:25:38,037 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\conda-environment.yaml
+2022-05-25 17:25:38,037 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:25:38,038 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\wandb-metadata.json
+2022-05-25 17:25:38,426 INFO    Thread-26 :16860 [upload_job.py:push():132] Uploaded file C:\Users\kangnam\AppData\Local\Temp\tmp37x_f4gywandb\1lwcc1wq-wandb-metadata.json
+2022-05-25 17:25:40,045 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:25:53,102 DEBUG   HandlerThread:16860 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:25:53,102 DEBUG   SenderThread:16860 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:26:02,170 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:04,179 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:06,193 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:06,210 DEBUG   SenderThread:16860 [sender.py:send():232] send: stats
+2022-05-25 17:26:07,196 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\config.yaml
+2022-05-25 17:26:08,201 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:08,321 DEBUG   HandlerThread:16860 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:26:08,321 DEBUG   SenderThread:16860 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:26:10,212 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:12,227 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:14,239 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:16,249 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:18,260 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:20,271 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:22,283 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:23,530 DEBUG   HandlerThread:16860 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:26:23,530 DEBUG   SenderThread:16860 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:26:24,294 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:26,305 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:28,317 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:30,328 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:32,338 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:34,349 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:36,360 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:38,379 DEBUG   SenderThread:16860 [sender.py:send():232] send: stats
+2022-05-25 17:26:38,380 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:38,760 DEBUG   HandlerThread:16860 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:26:38,761 DEBUG   SenderThread:16860 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:26:40,399 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:42,410 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:44,422 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:46,433 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:48,444 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:50,455 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:52,466 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:53,966 DEBUG   HandlerThread:16860 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:26:53,967 DEBUG   SenderThread:16860 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:26:54,477 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:56,487 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:26:58,500 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:00,510 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:02,524 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:04,534 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:06,546 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:08,556 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:09,172 DEBUG   HandlerThread:16860 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:27:09,173 DEBUG   SenderThread:16860 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:27:10,544 DEBUG   SenderThread:16860 [sender.py:send():232] send: stats
+2022-05-25 17:27:10,568 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:12,580 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:14,592 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:16,603 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:18,618 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:20,629 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:22,639 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:24,607 DEBUG   HandlerThread:16860 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:27:24,608 DEBUG   SenderThread:16860 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:27:24,652 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:26,663 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:28,691 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:30,702 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:32,713 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:34,725 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:36,742 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:38,754 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:39,820 DEBUG   HandlerThread:16860 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:27:39,820 DEBUG   SenderThread:16860 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:27:40,766 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log
+2022-05-25 17:27:42,768 DEBUG   SenderThread:16860 [sender.py:send():232] send: stats
+2022-05-25 17:27:42,780 INFO    Thread-20 :16860 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172535-22tewpfw\files\output.log

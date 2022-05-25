@@ -1,0 +1,50 @@
+2022-05-25 16:59:04,988 INFO    StreamThr :23468 [internal.py:wandb_internal():90] W&B internal server running at pid: 23468, started at: 2022-05-25 16:59:04.987960
+2022-05-25 16:59:04,989 DEBUG   HandlerThread:23468 [handler.py:handle_request():141] handle_request: status
+2022-05-25 16:59:04,993 DEBUG   SenderThread:23468 [sender.py:send_request():246] send_request: status
+2022-05-25 16:59:04,995 DEBUG   SenderThread:23468 [sender.py:send():232] send: header
+2022-05-25 16:59:04,995 INFO    WriterThread:23468 [datastore.py:open_for_write():75] open: D:\project\kang_bart\wandb\run-20220525_165904-guhtv5k5\run-guhtv5k5.wandb
+2022-05-25 16:59:05,020 DEBUG   SenderThread:23468 [sender.py:send():232] send: run
+2022-05-25 16:59:05,023 INFO    SenderThread:23468 [sender.py:_maybe_setup_resume():489] checking resume status for None/kang_bart/guhtv5k5
+2022-05-25 16:59:05,464 DEBUG   HandlerThread:23468 [handler.py:handle_request():141] handle_request: check_version
+2022-05-25 16:59:05,472 INFO    SenderThread:23468 [dir_watcher.py:__init__():197] watching files in: D:\project\kang_bart\wandb\run-20220525_165904-guhtv5k5\files
+2022-05-25 16:59:05,472 INFO    SenderThread:23468 [sender.py:_start_run_threads():811] run started: guhtv5k5 with start time 1653465544
+2022-05-25 16:59:05,473 DEBUG   SenderThread:23468 [sender.py:send():232] send: summary
+2022-05-25 16:59:05,473 INFO    SenderThread:23468 [sender.py:_save_file():948] saving file wandb-summary.json with policy end
+2022-05-25 16:59:05,473 DEBUG   SenderThread:23468 [sender.py:send_request():246] send_request: check_version
+2022-05-25 16:59:05,517 DEBUG   HandlerThread:23468 [handler.py:handle_request():141] handle_request: run_start
+2022-05-25 16:59:05,538 DEBUG   HandlerThread:23468 [meta.py:__init__():35] meta init
+2022-05-25 16:59:05,538 DEBUG   HandlerThread:23468 [meta.py:__init__():49] meta init done
+2022-05-25 16:59:05,538 DEBUG   HandlerThread:23468 [meta.py:probe():209] probe
+2022-05-25 16:59:05,555 DEBUG   HandlerThread:23468 [meta.py:_setup_git():199] setup git
+2022-05-25 16:59:05,618 DEBUG   HandlerThread:23468 [meta.py:_setup_git():206] setup git done
+2022-05-25 16:59:05,618 DEBUG   HandlerThread:23468 [meta.py:_save_pip():53] save pip
+2022-05-25 16:59:05,620 DEBUG   HandlerThread:23468 [meta.py:_save_pip():67] save pip done
+2022-05-25 16:59:05,621 DEBUG   HandlerThread:23468 [meta.py:_save_conda():74] save conda
+2022-05-25 16:59:06,484 INFO    Thread-20 :23468 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_165904-guhtv5k5\files\conda-environment.yaml
+2022-05-25 16:59:06,485 INFO    Thread-20 :23468 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_165904-guhtv5k5\files\requirements.txt
+2022-05-25 16:59:06,485 INFO    Thread-20 :23468 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_165904-guhtv5k5\files\wandb-summary.json
+2022-05-25 16:59:07,084 DEBUG   HandlerThread:23468 [meta.py:_save_conda():84] save conda done
+2022-05-25 16:59:07,084 DEBUG   HandlerThread:23468 [meta.py:probe():247] probe done
+2022-05-25 16:59:07,210 DEBUG   SenderThread:23468 [sender.py:send():232] send: files
+2022-05-25 16:59:07,210 INFO    SenderThread:23468 [sender.py:_save_file():948] saving file wandb-metadata.json with policy now
+2022-05-25 16:59:07,210 DEBUG   HandlerThread:23468 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 16:59:07,211 DEBUG   SenderThread:23468 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 16:59:07,431 DEBUG   SenderThread:23468 [sender.py:send():232] send: telemetry
+2022-05-25 16:59:07,432 DEBUG   SenderThread:23468 [sender.py:send():232] send: metric
+2022-05-25 16:59:07,432 DEBUG   SenderThread:23468 [sender.py:send():232] send: telemetry
+2022-05-25 16:59:07,433 DEBUG   SenderThread:23468 [sender.py:send():232] send: metric
+2022-05-25 16:59:07,433 WARNING SenderThread:23468 [sender.py:send_metric():904] Seen metric with glob (shouldn't happen)
+2022-05-25 16:59:07,494 INFO    Thread-20 :23468 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_165904-guhtv5k5\files\conda-environment.yaml
+2022-05-25 16:59:07,494 INFO    Thread-20 :23468 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_165904-guhtv5k5\files\wandb-metadata.json
+2022-05-25 16:59:07,495 INFO    Thread-20 :23468 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_165904-guhtv5k5\files\output.log
+2022-05-25 16:59:07,820 INFO    Thread-26 :23468 [upload_job.py:push():132] Uploaded file C:\Users\kangnam\AppData\Local\Temp\tmp7cvlyx5awandb\3nrshivy-wandb-metadata.json
+2022-05-25 16:59:09,500 INFO    Thread-20 :23468 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_165904-guhtv5k5\files\output.log
+2022-05-25 16:59:11,515 INFO    Thread-20 :23468 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_165904-guhtv5k5\files\output.log
+2022-05-25 16:59:22,551 DEBUG   HandlerThread:23468 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 16:59:22,552 DEBUG   SenderThread:23468 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 16:59:35,625 DEBUG   SenderThread:23468 [sender.py:send():232] send: stats
+2022-05-25 16:59:36,723 INFO    Thread-20 :23468 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_165904-guhtv5k5\files\config.yaml
+2022-05-25 16:59:37,763 DEBUG   HandlerThread:23468 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 16:59:37,767 DEBUG   SenderThread:23468 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 16:59:53,080 DEBUG   HandlerThread:23468 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 16:59:53,081 DEBUG   SenderThread:23468 [sender.py:send_request():246] send_request: stop_status

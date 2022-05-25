@@ -1,0 +1,89 @@
+2022-05-25 17:23:53,773 INFO    StreamThr :19484 [internal.py:wandb_internal():90] W&B internal server running at pid: 19484, started at: 2022-05-25 17:23:53.773738
+2022-05-25 17:23:53,775 DEBUG   HandlerThread:19484 [handler.py:handle_request():141] handle_request: status
+2022-05-25 17:23:53,779 DEBUG   SenderThread:19484 [sender.py:send_request():246] send_request: status
+2022-05-25 17:23:53,780 DEBUG   SenderThread:19484 [sender.py:send():232] send: header
+2022-05-25 17:23:53,780 INFO    WriterThread:19484 [datastore.py:open_for_write():75] open: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\run-1tfg3s87.wandb
+2022-05-25 17:23:53,804 DEBUG   SenderThread:19484 [sender.py:send():232] send: run
+2022-05-25 17:23:53,808 INFO    SenderThread:19484 [sender.py:_maybe_setup_resume():489] checking resume status for None/kang_bart/1tfg3s87
+2022-05-25 17:23:54,279 DEBUG   HandlerThread:19484 [handler.py:handle_request():141] handle_request: check_version
+2022-05-25 17:23:54,288 INFO    SenderThread:19484 [dir_watcher.py:__init__():197] watching files in: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files
+2022-05-25 17:23:54,288 INFO    SenderThread:19484 [sender.py:_start_run_threads():811] run started: 1tfg3s87 with start time 1653467033
+2022-05-25 17:23:54,288 DEBUG   SenderThread:19484 [sender.py:send():232] send: summary
+2022-05-25 17:23:54,289 INFO    SenderThread:19484 [sender.py:_save_file():948] saving file wandb-summary.json with policy end
+2022-05-25 17:23:54,289 DEBUG   SenderThread:19484 [sender.py:send_request():246] send_request: check_version
+2022-05-25 17:23:54,333 DEBUG   HandlerThread:19484 [handler.py:handle_request():141] handle_request: run_start
+2022-05-25 17:23:54,349 DEBUG   HandlerThread:19484 [meta.py:__init__():35] meta init
+2022-05-25 17:23:54,349 DEBUG   HandlerThread:19484 [meta.py:__init__():49] meta init done
+2022-05-25 17:23:54,350 DEBUG   HandlerThread:19484 [meta.py:probe():209] probe
+2022-05-25 17:23:54,376 DEBUG   HandlerThread:19484 [meta.py:_setup_git():199] setup git
+2022-05-25 17:23:54,442 DEBUG   HandlerThread:19484 [meta.py:_setup_git():206] setup git done
+2022-05-25 17:23:54,442 DEBUG   HandlerThread:19484 [meta.py:_save_pip():53] save pip
+2022-05-25 17:23:54,443 DEBUG   HandlerThread:19484 [meta.py:_save_pip():67] save pip done
+2022-05-25 17:23:54,443 DEBUG   HandlerThread:19484 [meta.py:_save_conda():74] save conda
+2022-05-25 17:23:55,303 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\wandb-summary.json
+2022-05-25 17:23:55,304 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\conda-environment.yaml
+2022-05-25 17:23:55,304 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\requirements.txt
+2022-05-25 17:23:55,932 DEBUG   HandlerThread:19484 [meta.py:_save_conda():84] save conda done
+2022-05-25 17:23:55,933 DEBUG   HandlerThread:19484 [meta.py:probe():247] probe done
+2022-05-25 17:23:56,078 DEBUG   SenderThread:19484 [sender.py:send():232] send: files
+2022-05-25 17:23:56,079 INFO    SenderThread:19484 [sender.py:_save_file():948] saving file wandb-metadata.json with policy now
+2022-05-25 17:23:56,079 DEBUG   HandlerThread:19484 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:23:56,080 DEBUG   SenderThread:19484 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:23:56,300 DEBUG   SenderThread:19484 [sender.py:send():232] send: telemetry
+2022-05-25 17:23:56,300 DEBUG   SenderThread:19484 [sender.py:send():232] send: metric
+2022-05-25 17:23:56,301 DEBUG   SenderThread:19484 [sender.py:send():232] send: telemetry
+2022-05-25 17:23:56,301 DEBUG   SenderThread:19484 [sender.py:send():232] send: metric
+2022-05-25 17:23:56,301 WARNING SenderThread:19484 [sender.py:send_metric():904] Seen metric with glob (shouldn't happen)
+2022-05-25 17:23:56,307 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\conda-environment.yaml
+2022-05-25 17:23:56,307 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\wandb-metadata.json
+2022-05-25 17:23:56,308 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:23:56,765 INFO    Thread-26 :19484 [upload_job.py:push():132] Uploaded file C:\Users\kangnam\AppData\Local\Temp\tmpu8hbuy61wandb\1gcj1pkm-wandb-metadata.json
+2022-05-25 17:23:58,321 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:00,332 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:02,342 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:04,354 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:06,366 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:08,381 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:10,391 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:11,381 DEBUG   HandlerThread:19484 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:24:11,382 DEBUG   SenderThread:19484 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:24:12,403 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:14,414 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:16,426 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:18,437 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:20,449 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:22,460 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:24,486 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:24,486 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\config.yaml
+2022-05-25 17:24:24,525 DEBUG   SenderThread:19484 [sender.py:send():232] send: stats
+2022-05-25 17:24:25,490 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\config.yaml
+2022-05-25 17:24:26,497 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:26,721 DEBUG   HandlerThread:19484 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:24:26,722 DEBUG   SenderThread:19484 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:24:28,508 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:30,520 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:32,535 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:34,545 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:36,556 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:38,567 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:40,579 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:41,928 DEBUG   HandlerThread:19484 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:24:41,929 DEBUG   SenderThread:19484 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:24:42,591 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:44,600 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:46,612 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:48,623 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:50,633 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:52,645 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:54,656 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:56,671 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:24:56,706 DEBUG   SenderThread:19484 [sender.py:send():232] send: stats
+2022-05-25 17:24:58,076 DEBUG   HandlerThread:19484 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:24:58,077 DEBUG   SenderThread:19484 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:24:58,677 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:25:00,690 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:25:02,704 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:25:04,717 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:25:06,728 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:25:08,744 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log
+2022-05-25 17:25:10,757 INFO    Thread-20 :19484 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_172353-1tfg3s87\files\output.log

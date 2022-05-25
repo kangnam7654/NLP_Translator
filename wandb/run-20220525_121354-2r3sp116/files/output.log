@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "D:/project/kang_bart/main.py", line 65, in <module>
+    precision=16
+  File "D:/project/kang_bart/main.py", line 42, in main
+    # 콜백

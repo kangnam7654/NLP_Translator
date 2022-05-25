@@ -1,0 +1,24 @@
+{
+    "os": "Windows-10-10.0.22000-SP0",
+    "python": "3.9.12",
+    "heartbeatAt": "2022-05-25T07:55:05.174477",
+    "startedAt": "2022-05-25T07:55:04.441594",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3070",
+    "gpu_count": 1,
+    "cpu_count": 12,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "D:/project/kang_bart/main.py",
+    "codePath": "main.py",
+    "git": {
+        "remote": "https://github.com/kangnam7654/NLP_Translator.git",
+        "commit": "b188281202e6e52b237bd9376e2ace5c08f48842"
+    },
+    "email": "kangnam7654@naver.com",
+    "root": "D:/project/kang_bart",
+    "host": "kimkangnam",
+    "username": "kangnam",
+    "executable": "D:\\conda\\envs\\NLP_Translator_39\\python.exe"
+}

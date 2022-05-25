@@ -1,0 +1,87 @@
+2022-05-25 17:02:39,001 INFO    StreamThr :12184 [internal.py:wandb_internal():90] W&B internal server running at pid: 12184, started at: 2022-05-25 17:02:39.000823
+2022-05-25 17:02:39,003 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: status
+2022-05-25 17:02:39,006 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: status
+2022-05-25 17:02:39,008 DEBUG   SenderThread:12184 [sender.py:send():232] send: header
+2022-05-25 17:02:39,008 INFO    WriterThread:12184 [datastore.py:open_for_write():75] open: D:\project\kang_bart\wandb\run-20220525_170238-3qmgbrpk\run-3qmgbrpk.wandb
+2022-05-25 17:02:39,034 DEBUG   SenderThread:12184 [sender.py:send():232] send: run
+2022-05-25 17:02:39,038 INFO    SenderThread:12184 [sender.py:_maybe_setup_resume():489] checking resume status for None/kang_bart/3qmgbrpk
+2022-05-25 17:02:39,487 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: check_version
+2022-05-25 17:02:39,495 INFO    SenderThread:12184 [dir_watcher.py:__init__():197] watching files in: D:\project\kang_bart\wandb\run-20220525_170238-3qmgbrpk\files
+2022-05-25 17:02:39,495 INFO    SenderThread:12184 [sender.py:_start_run_threads():811] run started: 3qmgbrpk with start time 1653465758
+2022-05-25 17:02:39,495 DEBUG   SenderThread:12184 [sender.py:send():232] send: summary
+2022-05-25 17:02:39,497 INFO    SenderThread:12184 [sender.py:_save_file():948] saving file wandb-summary.json with policy end
+2022-05-25 17:02:39,497 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: check_version
+2022-05-25 17:02:39,546 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: run_start
+2022-05-25 17:02:39,568 DEBUG   HandlerThread:12184 [meta.py:__init__():35] meta init
+2022-05-25 17:02:39,568 DEBUG   HandlerThread:12184 [meta.py:__init__():49] meta init done
+2022-05-25 17:02:39,568 DEBUG   HandlerThread:12184 [meta.py:probe():209] probe
+2022-05-25 17:02:39,587 DEBUG   HandlerThread:12184 [meta.py:_setup_git():199] setup git
+2022-05-25 17:02:39,651 DEBUG   HandlerThread:12184 [meta.py:_setup_git():206] setup git done
+2022-05-25 17:02:39,651 DEBUG   HandlerThread:12184 [meta.py:_save_pip():53] save pip
+2022-05-25 17:02:39,652 DEBUG   HandlerThread:12184 [meta.py:_save_pip():67] save pip done
+2022-05-25 17:02:39,652 DEBUG   HandlerThread:12184 [meta.py:_save_conda():74] save conda
+2022-05-25 17:02:40,500 INFO    Thread-20 :12184 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_170238-3qmgbrpk\files\conda-environment.yaml
+2022-05-25 17:02:40,501 INFO    Thread-20 :12184 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_170238-3qmgbrpk\files\wandb-summary.json
+2022-05-25 17:02:40,501 INFO    Thread-20 :12184 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_170238-3qmgbrpk\files\requirements.txt
+2022-05-25 17:02:41,148 DEBUG   HandlerThread:12184 [meta.py:_save_conda():84] save conda done
+2022-05-25 17:02:41,149 DEBUG   HandlerThread:12184 [meta.py:probe():247] probe done
+2022-05-25 17:02:41,280 DEBUG   SenderThread:12184 [sender.py:send():232] send: files
+2022-05-25 17:02:41,280 INFO    SenderThread:12184 [sender.py:_save_file():948] saving file wandb-metadata.json with policy now
+2022-05-25 17:02:41,280 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:02:41,281 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:02:41,508 INFO    Thread-20 :12184 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_170238-3qmgbrpk\files\conda-environment.yaml
+2022-05-25 17:02:41,508 INFO    Thread-20 :12184 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_170238-3qmgbrpk\files\wandb-metadata.json
+2022-05-25 17:02:41,509 INFO    Thread-20 :12184 [dir_watcher.py:_on_file_created():244] file/dir created: D:\project\kang_bart\wandb\run-20220525_170238-3qmgbrpk\files\output.log
+2022-05-25 17:02:41,598 DEBUG   SenderThread:12184 [sender.py:send():232] send: telemetry
+2022-05-25 17:02:41,599 DEBUG   SenderThread:12184 [sender.py:send():232] send: metric
+2022-05-25 17:02:41,599 DEBUG   SenderThread:12184 [sender.py:send():232] send: telemetry
+2022-05-25 17:02:41,599 DEBUG   SenderThread:12184 [sender.py:send():232] send: metric
+2022-05-25 17:02:41,599 WARNING SenderThread:12184 [sender.py:send_metric():904] Seen metric with glob (shouldn't happen)
+2022-05-25 17:02:42,063 INFO    Thread-26 :12184 [upload_job.py:push():132] Uploaded file C:\Users\kangnam\AppData\Local\Temp\tmppapjejyrwandb\1b5aub3a-wandb-metadata.json
+2022-05-25 17:02:43,516 INFO    Thread-20 :12184 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_170238-3qmgbrpk\files\output.log
+2022-05-25 17:02:45,529 INFO    Thread-20 :12184 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_170238-3qmgbrpk\files\output.log
+2022-05-25 17:02:56,696 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:02:56,696 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:03:09,608 DEBUG   SenderThread:12184 [sender.py:send():232] send: stats
+2022-05-25 17:03:10,760 INFO    Thread-20 :12184 [dir_watcher.py:_on_file_modified():257] file/dir modified: D:\project\kang_bart\wandb\run-20220525_170238-3qmgbrpk\files\config.yaml
+2022-05-25 17:03:11,931 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:03:11,932 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:03:27,141 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:03:27,142 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:03:41,746 DEBUG   SenderThread:12184 [sender.py:send():232] send: stats
+2022-05-25 17:03:42,392 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:03:42,392 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:03:57,607 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:03:57,607 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:04:12,803 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:04:12,804 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:04:13,953 DEBUG   SenderThread:12184 [sender.py:send():232] send: stats
+2022-05-25 17:04:28,062 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:04:28,062 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:04:43,261 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:04:43,262 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:04:46,132 DEBUG   SenderThread:12184 [sender.py:send():232] send: stats
+2022-05-25 17:04:58,490 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:04:58,491 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:05:13,691 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:05:13,692 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:05:18,297 DEBUG   SenderThread:12184 [sender.py:send():232] send: stats
+2022-05-25 17:05:28,959 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:05:28,960 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:05:44,188 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:05:44,189 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:05:50,524 DEBUG   SenderThread:12184 [sender.py:send():232] send: stats
+2022-05-25 17:05:59,425 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:05:59,426 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:06:14,625 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:06:14,626 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:06:22,692 DEBUG   SenderThread:12184 [sender.py:send():232] send: stats
+2022-05-25 17:06:29,825 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:06:29,826 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:06:45,055 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:06:45,056 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:06:54,784 DEBUG   SenderThread:12184 [sender.py:send():232] send: stats
+2022-05-25 17:07:00,281 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:07:00,281 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
+2022-05-25 17:07:15,490 DEBUG   HandlerThread:12184 [handler.py:handle_request():141] handle_request: stop_status
+2022-05-25 17:07:15,491 DEBUG   SenderThread:12184 [sender.py:send_request():246] send_request: stop_status
