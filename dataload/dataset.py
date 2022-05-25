@@ -1,16 +1,17 @@
+import torch
 from torch.utils.data import Dataset
+from utils.text_infilling import TextInfilling
 import numpy as np
 
 
 class CustomDataset(Dataset):
-    def __init__(self, df, tokenizer, max_len=256, ignore_index=-100, train_stage=True, translator=False):
+    def __init__(self, df, tokenizer, max_len=512, train_stage=True):
         super().__init__()
         self.df = df
         self.tokenizer = tokenizer
         self.train_stage = train_stage
         self.max_len = max_len
-        self.ignore_index = ignore_index
-        self.translator = translator
+        self.text_infilling = TextInfilling()
 
     def __len__(self):
         return len(self.df)
@@ -18,50 +19,30 @@ class CustomDataset(Dataset):
     def __getitem__(self, idx):
         instance = self.df.iloc[idx]
 
-        input_ids = [self.tokenizer.bos_token_id]
-        input_ids += self.tokenizer.encode(instance['원문'])
-        input_ids.append(self.tokenizer.eos_token_id)
-        input_ids = self.token_masking(input_ids)
+        # input_ids
+        tokenized_input = self.tokenizer.encode(instance['원문'])
+        masked_input = self.text_infilling.mask(tokenized_input)
+
+        input_ids = np.concatenate([[self.tokenizer.bos_token_id], masked_input, [self.tokenizer.eos_token_id]])
         input_ids = self.add_padding_data(input_ids)
 
-        label_ids = [self.tokenizer.bos_token_id]
-        if self.translator:  # 번역기 학습
-            label_ids += self.tokenizer.encode(instance['번역문'])
-        else:  # base 학습
-            label_ids += self.tokenizer.encode(instance['원문'])
-        label_ids.append(self.tokenizer.eos_token_id)
+        # label_ids
+        label_ids = self.tokenizer.encode(instance['원문'])
+        label_ids = np.concatenate([[self.tokenizer.bos_token_id], label_ids, [self.tokenizer.eos_token_id]])
 
-        dec_input_ids = [self.tokenizer.eos_token_id]
-        dec_input_ids += label_ids[:-1]
+        # decoder input
+        dec_input_ids = np.concatenate([[self.tokenizer.eos_token_id], [self.tokenizer.bos_token_id], label_ids[:-1]])
         dec_input_ids = self.add_padding_data(dec_input_ids)
 
-        label_ids = self.add_padding_data(label_ids)
+        label_ids = self.add_padding_data(label_ids)  # label에 padding
 
-        return {'input_ids': np.array(input_ids),
-                'decoder_input_ids': np.array(dec_input_ids),
-                'labels': np.array(label_ids)}
-
-    def token_masking(self, inputs):
-        n_mask = np.random.randint(2)
-        if n_mask != 0:
-            idx = [i for i in range(len(inputs))]
-            mask_position = np.random.choice(idx, n_mask)
-
-            for i in mask_position:
-                inputs[i] = self.tokenizer.mask_token_id
-        return inputs
+        return {'input_ids': torch.tensor(input_ids, dtype=torch.long),
+                'decoder_input_ids': torch.tensor(dec_input_ids, dtype=torch.long),
+                'labels': torch.tensor(label_ids, dtype=torch.long)}
 
     def add_padding_data(self, inputs):
         if len(inputs) < self.max_len:
             pad = np.array([self.tokenizer.pad_token_id] * (self.max_len - len(inputs)))
-            inputs = np.concatenate([inputs, pad])
-        else:
-            inputs = inputs[:self.max_len]
-        return inputs
-
-    def add_ignored_data(self, inputs):
-        if len(inputs) < self.max_len:
-            pad = np.array([self.ignore_index] * (self.max_len - len(inputs)))
             inputs = np.concatenate([inputs, pad])
         else:
             inputs = inputs[:self.max_len]
