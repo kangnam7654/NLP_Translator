@@ -7,42 +7,45 @@ from custom_tokenizer.custom_tokenizer import get_tokenizer
 class Bart(LightningModule):
     def __init__(self, mode='train'):
         super().__init__()
+        self.lr = 0.01
         self.tokenizer = self.build_tokenizer()
         self.bart_config = self.bart_configs()
         self.model = self.build_model(self.bart_config)
         self.bos_token = '<s>'
         self.eos_token = '</s>'
         self.pad_token_id = self.tokenizer.pad_token_id
+
+        self.save_hyperparameters()
         self.mode = mode
 
     def forward(self, inputs):
-        attention_mask = inputs['input_ids'].ne(self.pad_token_id).float()
-        decoder_attention_mask = inputs['decoder_input_ids'].ne(self.pad_token_id).float()
+        attention_mask = inputs['input_ids'].ne(self.tokenizer.pad_token_id).float()
+        decoder_attention_mask = inputs['decoder_input_ids'].ne(self.tokenizer.pad_token_id).float()
 
         out = self.model(input_ids=inputs['input_ids'],
                          attention_mask=attention_mask,
                          decoder_input_ids=inputs['decoder_input_ids'],
                          decoder_attention_mask=decoder_attention_mask,
-                         labels=inputs['labels'].long(),
-                         return_dict=True
+                         labels=inputs['labels']
                          )
         return out
 
     def training_step(self, batch, batch_idx):
         train_loss, train_acc = self.__share_step(batch)
-        # train_acc.requires_grad = True
         results = {'loss': train_loss, 'acc': train_acc}
+        self.log_dict({'train_loss': train_loss, 'train_acc': train_acc})
         return results
 
     def validation_step(self, batch, batch_idx):
         valid_loss, valid_acc = self.__share_step(batch)
         results = {'loss': valid_loss, 'acc': valid_acc}
+        self.log_dict({'valid_loss': valid_loss, 'valid_acc': valid_acc})
         return results
 
     def predict_step(self, batch, batch_idx, dataloader_idx=None):
-        out = torch.softmax(self(batch), dim=1)
-        pred = torch.argmax(out, dim=1)
-        return pred
+        out = self(batch)
+        prediction = torch.argmax(out, dim=1)
+        return prediction
 
     def training_epoch_end(self, outputs):
         self.__share_epoch_end(outputs, 'train')
@@ -64,21 +67,21 @@ class Bart(LightningModule):
 
         opt = torch.optim.SGD(
             self.parameters(),
-            lr=0.001,
+            lr=self.lr,
             weight_decay=0.0001,
             momentum=0.9,
             nesterov=True
         )
-        # sch = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(optimizer=opt,)
-        sch = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer=opt,
-                                                         mode='min',
-                                                         factor=0.1,
-                                                         patience=2,
-                                                         min_lr=1e-8,
-                                                         verbose=True)
-        monitor = 'valid_loss'
-        returns = {'optimizer': opt, 'lr_scheduler': sch, 'monitor': monitor}
-        return returns
+
+        # sch = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer=opt,
+        #                                                  mode='min',
+        #                                                  factor=0.1,
+        #                                                  patience=2,
+        #                                                  min_lr=1e-8,
+        #                                                  verbose=True)
+        # monitor = 'valid_loss'
+
+        return [opt]
 
     def __share_step(self, batch):
         out = self(batch)
@@ -131,8 +134,8 @@ class Bart(LightningModule):
 
     @staticmethod
     def compute_accuracy(out, labels):  # for classification
-        max_indices = torch.argmax(torch.softmax(out.logits, dim=2), dim=2)
-        acc = (max_indices == labels).to(torch.float).mean() * 100
+        max_indices = torch.argmax(out.logits, dim=-1)
+        acc = (max_indices == labels).to(torch.float).mean()
         return acc
 
 
