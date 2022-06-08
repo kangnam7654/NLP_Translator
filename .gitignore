@@ -3,8 +3,7 @@
 /logs
 /custom_tokenizer/vocab
 /data
-__test__.py
-/_
+/.idea
 #################################
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,macos,pycharm+iml
