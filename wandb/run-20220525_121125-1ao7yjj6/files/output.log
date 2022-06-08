@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "D:/project/kang_bart/main.py", line 64, in <module>
-    main()
-  File "D:/project/kang_bart/main.py", line 19, in main
-    model = Bart()  # 모델
-KeyboardInterrupt

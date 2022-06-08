@@ -1,5 +1,0 @@
-model:
-  name: 'facebook/bart-base'
-vocab_size: 32000
-data:
-  n_data: 50000
