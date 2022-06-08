@@ -1,0 +1,8 @@
+pandas
+numpy
+torch
+pytorch-lightning
+transformers
+tokenizers
+sklearn
+wandb
