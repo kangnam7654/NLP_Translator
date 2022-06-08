@@ -13,7 +13,7 @@ def global_setting(config_file='cfg.yaml'):
     torch.cuda.manual_seed(config["SEED"])
     torch.cuda.manual_seed_all(config["SEED"])  # if use multi-GPU
 
-    # 나중에 재현할 때 쓰는 코드
+    # 나중에 재현할 때 쓰는 코드입니다.
     # torch.backends.cudnn.deterministic = True
     # torch.backends.cudnn.benchmark = True
     if config['TRAIN']['DEVICE'] is not None:
