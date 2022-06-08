@@ -4,7 +4,7 @@ from transformers import AutoModelForSeq2SeqLM, BartForConditionalGeneration
 from custom_tokenizer.custom_tokenizer import get_tokenizer
 
 
-class Bart(LightningModule):
+class KangBart(LightningModule):
     def __init__(self, mode='train'):
         super().__init__()
         self.lr = 0.01
@@ -19,6 +19,14 @@ class Bart(LightningModule):
         self.mode = mode
 
     def forward(self, inputs):
+        """
+        The function takes in the model, the tokenizer, and the input_ids and decoder_input_ids. It then
+        creates a mask for the input_ids and decoder_input_ids, and then passes the input_ids,
+        attention_mask, decoder_input_ids, decoder_attention_mask, and labels into the model
+        
+        :param inputs: a dictionary of the input tensors
+        :return: The output of the model.
+        """
         attention_mask = inputs['input_ids'].ne(self.tokenizer.pad_token_id).float()
         decoder_attention_mask = inputs['decoder_input_ids'].ne(self.tokenizer.pad_token_id).float()
 
@@ -31,6 +39,14 @@ class Bart(LightningModule):
         return out
 
     def training_step(self, batch, batch_idx):
+        """
+        `training_step` is a function that takes in a batch of data and returns a dictionary of losses and
+        metrics.
+        
+        :param batch: the batch of data that is passed to the training step
+        :param batch_idx: The index of the batch within the current epoch
+        :return: The results dictionary is being returned.
+        """
         train_loss, train_acc = self.__share_step(batch)
         results = {'loss': train_loss, 'acc': train_acc}
         self.log_dict({'train_loss': train_loss, 'train_acc': train_acc})
@@ -84,12 +100,25 @@ class Bart(LightningModule):
         return [opt]
 
     def __share_step(self, batch):
+        """
+        > The function takes a batch of data, feeds it through the model, computes the loss and
+        accuracy, and returns them
+        
+        :param batch: a batch of data
+        :return: The loss and accuracy of the batch.
+        """
         out = self(batch)
         loss = out.loss
         acc = self.compute_accuracy(out, batch['labels']).unsqueeze(dim=0)
         return loss, acc
 
     def __share_epoch_end(self, outputs, mode):
+        """
+        
+        
+        :param outputs: a list of dictionaries, each containing the loss and accuracy for each batch
+        :param mode: The mode of the current epoch
+        """
         all_loss = []
         all_acc = []
         for out in outputs:
@@ -101,6 +130,10 @@ class Bart(LightningModule):
         self.log_dict({f'{mode}_loss': avg_loss, f'{mode}_acc': avg_acc})
 
     def bart_configs(self):
+        """
+        It returns the configuration of the BART model.
+        :return: The configs for the BART model.
+        """
         bart_config = AutoModelForSeq2SeqLM.from_pretrained('facebook/bart-base').config
         bart_config.vocab_size = self.tokenizer.vocab_size  # default : 50265
         bart_config.pad_token_id = self.tokenizer.pad_token_id

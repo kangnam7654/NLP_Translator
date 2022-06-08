@@ -1,5 +1,41 @@
+csv_name: 'train.tsv'
+train_test_split:
+  test_size: 0.1
+
 model:
   name: 'facebook/bart-base'
 vocab_size: 32000
 data:
   n_data: 50000
+
+# Train DataLodader
+train_loader:
+  batch_size: 4
+  num_workers: 8
+
+# Valdation DataLoader
+valid_loader:
+  batch_size: 4
+  num_workers: 8
+
+ModelCheckpoint:
+  dirpath: '/ckpt'
+  filename: './model'
+  monitor: 'valid_loss'
+  save_top_k: 1
+  save_weights_only: True
+  mode: 'min'
+  save_last: False
+  verbose: True
+
+EarlyStopping:
+  monitor: 'valid_loss'
+  verbose: True
+  patience: 10
+  mode: 'min'
+
+trainer:
+  max_epochs: 100
+  accelerator: 'gpu'
+  gpus: 1
+  precision: 16
