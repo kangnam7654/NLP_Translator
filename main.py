@@ -1,8 +1,7 @@
 import pandas as pd
 
-from utils.lr_finder import custom_lr_finder
 from utils.config_reader import cfg_load
-from pytorch_lightning import Trainer, seed_everything
+from pytorch_lightning import Trainer
 from pytorch_lightning.loggers import WandbLogger
 from pytorch_lightning.callbacks.model_checkpoint import ModelCheckpoint
 from pytorch_lightning.callbacks.early_stopping import EarlyStopping

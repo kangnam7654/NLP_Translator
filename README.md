@@ -2,7 +2,12 @@
 
 ## Project
 ```
-Korean - English Translator
+Kang_Bert
+```
+
+## Description
+```
+BART 모델의 이해를 위한 Tokenier 제작 및 BART 모델 학습 프로젝트
 ```
 
 ## Data
